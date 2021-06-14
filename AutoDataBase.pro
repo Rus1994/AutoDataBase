@@ -9,14 +9,25 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AbstractDataWindow.cpp \
+    CarsWindow.cpp \
+    ManufactFirmsWindow.cpp \
+    ModelsCarsWindow.cpp \
+    OwnersWindow.cpp \
     main.cpp \
     AutoDataBase.cpp
 
 HEADERS += \
-    AutoDataBase.h
+    AbstractDataWindow.h \
+    AutoDataBase.h \
+    CarsWindow.h \
+    ManufactFirmsWindow.h \
+    ModelsCarsWindow.h \
+    OwnersWindow.h
 
 FORMS += \
-    AutoDataBase.ui
+    AbstractDataWindow.ui \
+    AutoDataBase.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
