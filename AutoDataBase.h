@@ -39,7 +39,7 @@ private slots:
 
 private:
     Ui::AutoDataBase *ui;
-    const QString FILE_NAME_DB = "D:/Rustam/qt project/AutoDataBase/AutoDataBase.db";
+    const QString FILE_NAME_DB = "../AutoDataBase/AutoDataBase.db";
     QMap<QString, QStringList> fieldOfTables;
     QSqlDatabase db;
 
