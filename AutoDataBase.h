@@ -11,12 +11,6 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class AutoDataBase; }
 QT_END_NAMESPACE
 
-enum NameTable{
-    FIRMS,
-    CARS,
-    OWNERS,
-    MODELS
-};
 
 
 class AutoDataBase : public QMainWindow
@@ -24,8 +18,17 @@ class AutoDataBase : public QMainWindow
     Q_OBJECT
 
 public:
+    enum NameTable{
+        FIRMS,
+        CARS,
+        OWNERS,
+        MODELS
+    };
+
     AutoDataBase(QWidget *parent = nullptr);
     ~AutoDataBase();
+
+    static QString getNameTable(NameTable name);
 
 private slots:
 
@@ -40,13 +43,12 @@ private slots:
 private:
     Ui::AutoDataBase *ui;
     const QString FILE_NAME_DB = "../AutoDataBase/AutoDataBase.db";
-    QMap<QString, QStringList> fieldOfTables;
+    QMultiMap<QString, QStringList> fieldOfTables;
     QSqlDatabase db;
 
-    QString getNameTable(NameTable name);
     void initialize();
     void checkTablesInDB();
-    void createTableInDB(QString nameTable, QStringList namesColumn);
+    void createTableInDB(QString nameTable, QStringList namesColumn, QStringList sizeFields);
 
 };
 #endif // AUTODATABASE_H

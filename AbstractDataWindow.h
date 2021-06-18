@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlTableModel>
+#include <QTableView>
+#include <QTableWidget>
+#include <AutoDataBase.h>
 
 namespace Ui {
 class AbstractDataWindow;
@@ -28,6 +31,17 @@ protected:
     QSqlTableModel *tab;
     QString nameTableDb;
     QStringList namesColumn;
+    QTableView *tableView;
+    QTableWidget *tableWidget;
+
+    void updateToDb(QString nameTable, QString nameCol, QString data, QString idCol, QString nameRow);
+    void insertToDb(QString nameTable, QStringList params, QStringList values);
+    QString getDataFromDb(QString nameTable, QString nameField, QString nameCol, QString valCol);
+    QStringList getDataFromDb(QString nameTable, QString nameField);
+
+    virtual void initTableWidget(){}
+    virtual QStringList getDataForWriting();
+    virtual void clearTableWidget();
 };
 
 #endif // ABSTRACTDATA_H
